@@ -1,13 +1,14 @@
-import { ProductArea, Title, Span, Image, Button } from './styles';
+import { ProductArea, Title, Span, Image, BtnGroup, Button } from './styles';
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
-
+ 
 import {BsFillCartCheckFill, BsFillCartPlusFill} from 'react-icons/bs';
+import {RiShoppingBasketFill} from 'react-icons/ri';
 
 
 import { getItem, setItem } from '../../services/LocalStorageFuncs';
+import Header from '../../components/Header';
 
 const Store = () => {
 
@@ -39,22 +40,24 @@ const Store = () => {
 
   return (
     <>
-    <Link to="/cart">Carrinho</Link>
+      <Header to="/compras">Meu Carrinho <RiShoppingBasketFill /></Header>
       <ProductArea>
       
       {
         products.map((product) => (
             <div className="container-card" key={product.id}>
+              <Image src={product.thumbnail} alt={product.title} />
               <Title>{product.title}</Title>
               <Span>R$ {product.price}</Span>
-              <Image src={product.thumbnail} alt={product.title} />
+              <BtnGroup>
               <Button onClick={() => handleAddcart(product)}>
                 {
                   cart.some((itemCart) => itemCart.id === product.id) 
-                  ? <BsFillCartCheckFill />
-                  : <BsFillCartPlusFill />
+                  ? <div className="teste"><BsFillCartCheckFill /><span>Adicioando</span></div> 
+                  : <><BsFillCartPlusFill /></>
                 }
               </Button>
+              </BtnGroup>
             </div>
           ))
       }

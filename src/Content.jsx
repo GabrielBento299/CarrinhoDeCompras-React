@@ -9,7 +9,7 @@ const Content = () => {
   return (
      <Switch>
         <Route exact path="/" component={Store} />
-        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/compras" component={Cart} />
      </Switch>
   )
 }

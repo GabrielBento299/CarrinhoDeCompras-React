@@ -4,7 +4,8 @@ import { useState } from "react";
 import { getItem, setItem } from "../../services/LocalStorageFuncs";
 
 import { BsFillCartDashFill } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+ 
+import Header from '../../components/Header';
 
 const Cart = () => {
   const [data, setData] = useState(getItem('carrinhoYt') || []);
@@ -18,7 +19,8 @@ const Cart = () => {
 
   return (
     <div>
-        <Link to="/">Voltar</Link>
+        <Header to="/">Voltar</Header>
+        
         <>
             {
                 data.length > 0 

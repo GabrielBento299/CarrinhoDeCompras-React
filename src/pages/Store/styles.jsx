@@ -7,6 +7,7 @@ export const ProductArea = styled.div`
     gap: 50px;
     flex-wrap: wrap;
     width: 100%;
+    padding: 0 10rem;
 
     .container-card {
         display: flex;
@@ -20,7 +21,7 @@ export const ProductArea = styled.div`
         margin-bottom: 20px;
 
         border-radius: 7px;
-        border: 1px solid #333;
+        background-color: #FFF;
         padding: 20px;
      }
 
@@ -39,12 +40,23 @@ export const Span = styled.span`
      font-size: 18px;
 `;
 
+export const BtnGroup = styled.div`
+    border: none;
+    border-radius: 7px;
+
+    .teste {
+       
+
+    }
+`;
+
 export const Button = styled.button`
     background: transparent;
     
     border: none;
     margin-top: 5px;
-    font-size: 55px;
+    font-size: 20px;
+    width: 100%;
 `;
 
 export const Image = styled.img`
