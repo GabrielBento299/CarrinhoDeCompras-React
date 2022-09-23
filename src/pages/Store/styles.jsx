@@ -25,14 +25,14 @@ export const ProductArea = styled.div`
         padding: 20px;
      }
 
-     .container-card img {
-       
-     }
+
+   
 `;
 
 export const Title = styled.h1`
-    font-size: 20px;
-    color: red;
+    font-size: 18px;
+    color: #444;
+    font-size: 700;
 `;
 
 export const Span = styled.span`
@@ -57,6 +57,8 @@ export const Button = styled.button`
     margin-top: 5px;
     font-size: 20px;
     width: 100%;
+
+    cursor: pointer;
 `;
 
 export const Image = styled.img`

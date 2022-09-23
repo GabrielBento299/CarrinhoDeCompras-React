@@ -1,4 +1,6 @@
-import { ProductArea, Title} from '../Store/styles';
+import { ProductArea, Title, Span, Image, Button} from '../Store/styles';
+
+import { Mensagem } from './styles';
 
 import { useState } from "react";
 import { getItem, setItem } from "../../services/LocalStorageFuncs";
@@ -19,27 +21,31 @@ const Cart = () => {
 
   return (
     <div>
-        <Header to="/">Voltar</Header>
+        
+        <Header to="/">Home</Header>
         
         <>
+        <div>
             {
                 data.length > 0 
-                 ? <h1>Seu Carrinho</h1>
-                 : <h1>Carrinho Vazio</h1>
+                 ? <Mensagem>Suas Compras: {data.length}</Mensagem>
+                 : <Mensagem>Carrinho Vazio</Mensagem>
             } 
+        </div>
+         
 
             <ProductArea>
 
             {
                 data.map((favorites) => (
                  <div className="container-card" key={favorites.id}>
+                        <Image src={favorites.thumbnail} alt={favorites.title} />
                         <Title>{favorites.title}</Title>  
-                        <span>R$ {favorites.price}</span>
+                        <Span>R$ {favorites.price}</Span>
                         <p>Quantidades: {favorites.available_quantity}</p>
-                        <img src={favorites.thumbnail} alt={favorites.title} />
-                        <button onClick={() => removedItem(favorites)}>
+                        <Button onClick={() => removedItem(favorites)}>
                             {<BsFillCartDashFill />}
-                        </button>
+                        </Button>
                     </div>    
                 ))
             }

@@ -8,18 +8,18 @@ export const Container = styled.div`
     width: 100%;
     height: 70px;
     margin-bottom: 70px;
-    background-color: crimson;
+    background-color: #333;
 
     a {
         text-decoration: none;
         font-size: 22px;
-        color: #FFF;
+        color: #EEE;
         display: flex;
         gap: 7px;
         
     
     &:hover {
-        color: #111;
+        color: #FFF;
     }
     }
 `;

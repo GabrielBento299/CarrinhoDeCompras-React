@@ -12,6 +12,9 @@ import Header from '../../components/Header';
 
 const Store = () => {
 
+  const [search, setSearch] = useState([]);
+  const [filter, setFilter] = useState([]);
+
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState(getItem('carrinhoYt') || []);
 
@@ -23,6 +26,10 @@ const Store = () => {
     }
     fetchProduct();
   },[]);
+
+  useEffect(() => {
+    setFilter(products.filter(product => product.name.includes(search)));
+  },[])
 
   const handleAddcart = (productId) => {
     console.log(productId)
@@ -40,9 +47,9 @@ const Store = () => {
 
   return (
     <>
-      <Header to="/compras">Meu Carrinho <RiShoppingBasketFill /></Header>
+      <Header to="/compras">Meu Carrinho<RiShoppingBasketFill />
+      </Header>
       <ProductArea>
-      
       {
         products.map((product) => (
             <div className="container-card" key={product.id}>
@@ -53,7 +60,7 @@ const Store = () => {
               <Button onClick={() => handleAddcart(product)}>
                 {
                   cart.some((itemCart) => itemCart.id === product.id) 
-                  ? <div className="teste"><BsFillCartCheckFill /><span>Adicioando</span></div> 
+                  ? <div><BsFillCartCheckFill style={{color: 'green'}} /><span>Adicionado</span></div> 
                   : <><BsFillCartPlusFill /></>
                 }
               </Button>
