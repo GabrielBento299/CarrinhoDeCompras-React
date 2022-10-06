@@ -55,7 +55,11 @@ const Store = () => {
             <div className="container-card" key={product.id}>
               <Image src={product.thumbnail} alt={product.title} />
               <Title>{product.title}</Title>
-              <Span>R$ {product.price}</Span>
+              <Span> {new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                    }).format(product.price)}
+              </Span>
               <BtnGroup>
               <Button onClick={() => handleAddcart(product)}>
                 {

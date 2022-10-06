@@ -32,16 +32,18 @@ const Cart = () => {
                  : <Mensagem>Carrinho Vazio</Mensagem>
             } 
         </div>
-         
 
             <ProductArea>
-
             {
                 data.map((favorites) => (
                  <div className="container-card" key={favorites.id}>
                         <Image src={favorites.thumbnail} alt={favorites.title} />
                         <Title>{favorites.title}</Title>  
-                        <Span>R$ {favorites.price}</Span>
+                        <Span>{new Intl.NumberFormat('pt-BR', {
+                                style: 'currency',
+                                currency: 'BRL'
+                                }).format(favorites.price)}
+                        </Span>
                         <p>Quantidades: {favorites.available_quantity}</p>
                         <Button onClick={() => removedItem(favorites)}>
                             {<BsFillCartDashFill />}
